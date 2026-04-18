@@ -36,9 +36,3 @@ We built a distributed semantic search system for 1-3 GB of Stack Exchange Q&A d
 - **Apple Silicon compatibility**: Used `faiss-cpu` and PySpark with local mode.  
 - **Memory management**: Partitioned Parquet reduced shuffle.  
 
-## 6. Future Work
-- Add distributed FAISS (IVF) for >10M vectors.  
-- Implement incremental indexing for live updates.  
-
-## 7. Conclusion
-Our system successfully demonstrates distributed semantic search on multi‑GB data using commodity hardware, meeting all proposed objectives.
