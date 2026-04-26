@@ -1,0 +1,15 @@
+
+============================================================
+Flask app starting on port 5002
+  Local on server: http://localhost:5002
+  Network:         http://0.0.0.0:5002
+
+For SSH tunnel from your laptop, run in a separate terminal:
+  ssh -L 5002:localhost:5002 m25_jahanvi@iit-jodhpur
+
+Then open in laptop browser:
+  http://localhost:5002
+============================================================
+
+ * Serving Flask app 'app_gpu'
+ * Debug mode: off
