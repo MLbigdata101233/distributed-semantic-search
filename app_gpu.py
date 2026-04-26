@@ -27,8 +27,7 @@ model = SentenceTransformer(SENTENCE_TRANSFORMER_MODEL, device="cuda")
 
 log.info("Loading FAISS index...")
 cpu_index = faiss.read_index(FAISS_INDEX_PATH)
-res = faiss.StandardGpuResources()
-gpu_index = faiss.index_cpu_to_gpu(res, GPU_ID, cpu_index)
+gpu_index = cpu_index  # use CPU directly to avoid GPU FAISS issues
 gpu_index.nprobe = 32
 
 log.info("Loading metadata...")
@@ -170,5 +169,27 @@ def stats():
 def health():
     return jsonify({"status": "ok", "vectors": int(gpu_index.ntotal)})
 
+def find_free_port(start_port=5000, max_attempts=100):
+    """Find first free port >= start_port."""
+    import socket
+    for port in range(start_port, start_port + max_attempts):
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        try:
+            s.bind(('', port))
+            s.close()
+            return port
+        except OSError:
+            continue
+    raise RuntimeError(f"No free port found from {start_port}")
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=False)
+    port = find_free_port(start_port=5000)
+    print(f"\n{'='*60}")
+    print(f"Flask app starting on port {port}")
+    print(f"  Local:    http://localhost:{port}")
+    print(f"  Network:  http://0.0.0.0:{port}")
+    print(f"\nFor SSH tunnel from your laptop:")
+    print(f"  ssh -L {port}:localhost:{port} m25_jahanvi@iit-jodhpur")
+    print(f"{'='*60}\n")
+    app.run(host='0.0.0.0', port=port, debug=False)
