@@ -1,0 +1,75 @@
+============================================================
+ENVIRONMENT
+============================================================
+numpy version: 2.2.5
+pandas version: 2.3.3
+faiss version: 1.7.2
+faiss has GPU: True
+
+============================================================
+LOADING PARQUET
+============================================================
+Rows: 945111
+Columns: ['id', 'text', 'embedding']
+Column dtypes:
+  id: int64
+  text: object
+  embedding: object
+
+============================================================
+EMBEDDING COLUMN INSPECTION
+============================================================
+Series dtype: object
+First element type: <class 'numpy.ndarray'>
+First element preview: [-0.00013196 -0.03566043  0.03353509 ... -0.03964642  0.00601324
+  0.00049749]...
+First element length: 1024
+First element dtype: float32
+First element shape: (1024,)
+
+============================================================
+CONVERSION ATTEMPT
+============================================================
+Raw values dtype: object
+Raw values shape: (945111,)
+
+Converting row-by-row...
+First 5 rows -> shape: (5, 1024), dtype: float32
+Contiguous: True
+
+Full conversion...
+Full shape: (945111, 1024)
+Full dtype: float32
+Full contiguous: True
+Memory layout: F=False, C=True
+Has NaN: False
+Has Inf: False
+Min: -0.15657208859920502, Max: 0.17745991051197052
+
+============================================================
+FAISS COMPATIBILITY TEST
+============================================================
+Testing CPU IndexFlatIP.add() with first 1000 rows...
+FAILED: ValueError: input not a numpy array
+
+Testing CPU IndexIVFFlat.train() with first 10000 rows...
+FAILED: ValueError: input not a numpy array
+
+Testing GPU resources...
+SUCCESS: StandardGpuResources created
+
+Testing GPU index_cpu_to_gpu...
+SUCCESS: index moved to GPU
+Testing GPU train with first 10000 rows...
+FAILED: ValueError: input not a numpy array
+============================================================
+ENVIRONMENT
+============================================================
+numpy version: 1.26.4
+pandas version: 2.3.3
+faiss version: 1.7.2
+faiss has GPU: True
+
+============================================================
+LOADING PARQUET
+============================================================

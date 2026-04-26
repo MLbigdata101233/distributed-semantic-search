@@ -1,0 +1,5 @@
+Embeddings shape: (945111, 1024)
+Saved embeddings to data/data/embeddings_parquet_gpu
+Encoding 945111 documents with e5 passage prefix...
+Embeddings shape: (945111, 1024)
+Saved embeddings to data/data/embeddings_parquet_gpu
