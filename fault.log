@@ -1,0 +1,33 @@
+[01:57:49.463] ============================================================
+[01:57:49.463] FAULT TOLERANCE DEMONSTRATION
+[01:57:49.463] ============================================================
+[01:57:49.463] Discovered master URL: spark://localhost:7077
+[01:57:49.463] Master Web UI: http://localhost:8080
+[01:57:49.482] Initial worker PIDs: [601024, 601228]
+[01:57:49.482] Connecting to spark://localhost:7077...
+[01:57:51.861] Spark session ready.
+[01:57:51.861] Reading parquet from data/data/processed_parquet_gpu...
+[01:57:56.721] Loaded 945111 rows across 40 partitions.
+[01:57:56.722] [KILLER] Will kill a worker in 15s...
+[01:57:56.722] Starting slow map operation (~60-90s)...
+[01:57:56.722] Watch Spark UI: http://localhost:8080
+[01:57:56.722] Around 15s, one worker will die. Job should still finish.
+[01:58:11.755] [KILLER] Found 2 worker process(es): [601024, 601228]
+[01:58:11.755] [KILLER] Killing worker PID 601024 with SIGKILL...
+[01:58:11.756] [KILLER] Worker 601024 killed.
+[01:58:11.756] [KILLER] Spark should now detect the loss and reschedule tasks on the surviving worker.
+[02:40:02.514] ============================================================
+[02:40:02.514] JOB COMPLETED SUCCESSFULLY despite worker failure
+[02:40:02.514]   Rows processed: 945111
+[02:40:02.514]   Elapsed:        2525.8s
+[02:40:02.514] ============================================================
+[02:40:02.534] Final worker PIDs: [601228]
+[02:40:02.534] Workers lost during job: 1
+[02:40:02.534] 
+[02:40:02.534] PROOF OF FAULT TOLERANCE:
+[02:40:02.534]   - Job started with 2 workers
+[02:40:02.534]   - 1 worker SIGKILL'd mid-execution
+[02:40:02.534]   - Job still completed and processed all 945111 rows
+[02:40:02.534]   - This is Spark's RDD lineage + task retry in action
+[02:40:03.509] Spark session stopped.
+[02:40:03.509] Full timeline: fault_tolerance_log.txt
