@@ -1,9 +1,5 @@
 # Project Report: Scalable Semantic Search on Stack Exchange Data
 
-
-
-
-
 ## 1. Introduction
 We built a distributed semantic search system for 1-3 GB of Stack Exchange Q&A data, demonstrating scalability to 15 GB+ by leveraging Apache Spark, FAISS, and efficient columnar storage.
 
