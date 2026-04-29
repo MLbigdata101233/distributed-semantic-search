@@ -1,0 +1,14 @@
+
+============================================================
+Multi-site Flask app starting on port 5002
+  Local on server: http://localhost:5002
+  Sources: {'superuser.com': 1245418, 'askubuntu.com': 945111}
+
+For SSH tunnel from your laptop:
+  ssh -L 5002:localhost:5002 m25_jahanvi@iit-jodhpur
+
+Then open: http://localhost:5002
+============================================================
+
+ * Serving Flask app 'app_combined'
+ * Debug mode: off

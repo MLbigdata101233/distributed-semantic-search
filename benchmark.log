@@ -1,0 +1,69 @@
+============================================================
+SEMANTIC SEARCH BENCHMARK (CPU)
+============================================================
+
+[1/6] Loading embeddings and index...
+  Vectors: 2,190,529  Dim: 1024
+  Index size on disk: 8994.1 MB
+
+[2/6] Building exact (flat) CPU index for ground truth...
+  Flat index ready: 2190529 vectors
+
+[3/6] Generating test queries...
+  Computing ground truth (CPU brute-force)...
+  Ground truth done in 96.7s
+
+[4/6] Measuring latency (nprobe=32)...
+  p50=50.77ms p95=61.80ms p99=65.05ms
+  mean=51.04ms throughput=220 qps
+
+[5/6] Recall@10 vs nprobe...
+  nprobe=   1  recall=0.4993  lat=2.37ms
+  nprobe=   2  recall=0.6295  lat=3.87ms
+  nprobe=   4  recall=0.7543  lat=7.23ms
+  nprobe=   8  recall=0.8450  lat=15.75ms
+  nprobe=  16  recall=0.9134  lat=28.86ms
+  nprobe=  32  recall=0.9538  lat=55.11ms
+  nprobe=  64  recall=0.9769  lat=101.92ms
+  nprobe= 128  recall=0.9920  lat=204.72ms
+  nprobe= 256  recall=0.9959  lat=396.39ms
+
+[6/6] Saving outputs...
+
+SEMANTIC SEARCH BENCHMARK RESULTS
+=================================
+
+Dataset:
+  Total vectors:    2,190,529
+  Dimensions:       1024
+  Embedding model:  intfloat/e5-large-v2
+  Memory:           8.97 GB
+
+Index:
+  Type:             IVF1024,Flat
+  Disk size:        8994.1 MB
+
+Query Latency (nprobe=32):
+  p50:              50.77 ms
+  p95:              61.80 ms
+  p99:              65.05 ms
+  Mean:             51.04 ms
+  Throughput:       220 qps
+
+Recall@10 vs nprobe:
+ nprobe  recall_at_10  latency_ms
+      1        0.4993    2.372186
+      2        0.6295    3.872266
+      4        0.7543    7.229181
+      8        0.8450   15.748220
+     16        0.9134   28.862467
+     32        0.9538   55.111863
+     64        0.9769  101.917687
+    128        0.9920  204.717585
+    256        0.9959  396.393222
+
+Best (recall>=0.95): nprobe=32, recall=0.9538, lat=55.11ms
+
+============================================================
+All outputs in benchmark_output/
+============================================================

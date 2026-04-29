@@ -1,0 +1,202 @@
+usage: batch_search_spark.py [-h] {search,evaluate} ...
+
+Batch semantic search using Spark for query distribution. This is a legitimate
+use of Spark + FAISS: instead of trying to distribute a single query (where
+Spark's overhead exceeds FAISS's latency), we use Spark to distribute MANY
+queries across workers in parallel. Each worker loads the FAISS index +
+embedding model in its partition, processes its share of queries, and emits
+results. Spark handles the distribution, fault tolerance, and aggregation.
+Usage: python batch_search_spark.py queries.txt # one query per line python
+batch_search_spark.py --evaluate # run recall evaluation
+
+positional arguments:
+  {search,evaluate}
+    search           Search a file of queries
+    evaluate         Run built-in evaluation queries
+
+options:
+  -h, --help         show this help message and exit
+usage: batch_search_spark.py [-h] {search,evaluate} ...
+
+Batch semantic search using Spark for query distribution. This is a legitimate
+use of Spark + FAISS: instead of trying to distribute a single query (where
+Spark's overhead exceeds FAISS's latency), we use Spark to distribute MANY
+queries across workers in parallel. Each worker loads the FAISS index +
+embedding model in its partition, processes its share of queries, and emits
+results. Spark handles the distribution, fault tolerance, and aggregation.
+Usage: python batch_search_spark.py queries.txt # one query per line python
+batch_search_spark.py --evaluate # run recall evaluation
+
+positional arguments:
+  {search,evaluate}
+    search           Search a file of queries
+    evaluate         Run built-in evaluation queries
+
+options:
+  -h, --help         show this help message and exit
+Connecting to: spark://localhost:7077
+Running batch evaluation with 20 sample queries
+Distributing 20 queries across 2 partitions
+Connecting to: spark://localhost:7077
+Running batch evaluation with 20 sample queries
+Distributing 20 queries across 2 partitions
+Connecting to: spark://localhost:7077
+Running batch evaluation with 20 sample queries
+Distributing 20 queries across 2 partitions
+Connecting to: spark://localhost:7077
+Running batch evaluation with 20 sample queries
+Distributing 20 queries across 2 partitions
+
+============================================================
+BATCH SEARCH EVALUATION
+============================================================
+Total queries:      20
+Total elapsed:      25.55s
+Avg per query:      1277.4ms
+Throughput:         0.8 queries/sec
+
+First 5 results:
+
+  Query: ssh key authentication setup
+    ID=636806 score=0.8868
+    ID=929969 score=0.8862
+    ID=1103876 score=0.8827
+
+  Query: python virtual environment venv
+    ID=845708 score=0.8748
+    ID=291933 score=0.8701
+    ID=1450886 score=0.8602
+
+  Query: rest api authentication methods
+    ID=1013394 score=0.8445
+    ID=379218 score=0.8318
+    ID=1698840 score=0.8311
+
+  Query: kubernetes pod vs deployment
+    ID=1476658 score=0.8530
+    ID=1418948 score=0.8461
+    ID=808067 score=0.8455
+
+  Query: java garbage collection tuning
+    ID=426013 score=0.8541
+    ID=1585894 score=0.8350
+    ID=649631 score=0.8342
+
+Results saved to batch_search_evaluation.csv
+============================================================
+Loaded 10 queries from queries.txt
+Connecting to: spark://localhost:7077
+Distributing 10 queries across 2 partitions
+
+Completed 10 searches in 25.2s
+Throughput: 0.4 queries/sec
+
+Query: change keyboard layout
+  ID=804341 score=0.9006
+  ID=299670 score=0.8996
+  ID=876201 score=0.8960
+
+Query: windows registry editor
+  ID=295607 score=0.8860
+  ID=697410 score=0.8745
+  ID=1103950 score=0.8668
+
+Query: how to mount external usb drive
+  ID=1202365 score=0.8899
+  ID=156390 score=0.8867
+  ID=90614 score=0.8846
+
+Query: wifi not working after update
+  ID=1339685 score=0.8835
+  ID=974033 score=0.8791
+  ID=1198217 score=0.8787
+
+Query: how to install python on ubuntu
+  ID=1074349 score=0.8952
+  ID=205308 score=0.8947
+  ID=350999 score=0.8945
+
+Query: ssh connection refused
+  ID=1406956 score=0.9150
+  ID=745055 score=0.9082
+  ID=878153 score=0.9060
+
+Query: fix slow boot time
+  ID=1396765 score=0.8851
+  ID=1721764 score=0.8848
+  ID=1690107 score=0.8824
+
+Query: nvidia driver installation
+  ID=968071 score=0.8855
+  ID=1054954 score=0.8804
+  ID=812916 score=0.8787
+
+Query: configure bluetooth headphones
+  ID=514825 score=0.8891
+  ID=893956 score=0.8828
+  ID=1194503 score=0.8768
+
+Query: recover deleted files
+  ID=403015 score=0.8804
+  ID=622858 score=0.8786
+  ID=209491 score=0.8752
+
+Full results saved to batch_search_results.csv
+Loaded 254 queries from queries.txt
+Connecting to: spark://localhost:7077
+Distributing 254 queries across 8 partitions
+
+Completed 254 searches in 132.0s
+Throughput: 1.9 queries/sec
+
+Query: heredoc string syntax
+  ID=1011407 score=0.8490
+  ID=607400 score=0.8482
+  ID=590542 score=0.8471
+
+Query: gpg encrypt file
+  ID=680223 score=0.8670
+  ID=50340 score=0.8669
+  ID=498418 score=0.8627
+
+Query: local function var
+  ID=462477 score=0.8514
+  ID=462473 score=0.8448
+  ID=1320696 score=0.8419
+
+Query: zabbix install ubuntu
+  ID=398348 score=0.8727
+  ID=1013895 score=0.8471
+  ID=490278 score=0.8467
+
+Query: tmux session attach
+  ID=1444647 score=0.8981
+  ID=1792627 score=0.8937
+  ID=1530099 score=0.8925
+
+Query: trap signal handler
+  ID=916112 score=0.8395
+  ID=349821 score=0.8283
+  ID=410549 score=0.8234
+
+Query: csrf token explanation
+  ID=1345048 score=0.8594
+  ID=1503937 score=0.8558
+  ID=1674763 score=0.8301
+
+Query: fish shell vs bash
+  ID=217434 score=0.8430
+  ID=1128678 score=0.8345
+  ID=1418579 score=0.8337
+
+Query: bash for loop array
+  ID=1239184 score=0.8787
+  ID=1474528 score=0.8781
+  ID=835625 score=0.8746
+
+Query: paste columns side
+  ID=134711 score=0.8256
+  ID=1189114 score=0.8256
+  ID=1480351 score=0.8253
+
+Full results saved to batch_search_results.csv

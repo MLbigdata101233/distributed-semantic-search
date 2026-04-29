@@ -1,0 +1,3 @@
+Loaded 254 queries from queries.txt
+Connecting to: spark://localhost:7077
+Distributing 254 queries across 8 partitions

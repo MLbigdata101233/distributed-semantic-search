@@ -1,0 +1,115 @@
+# ============================================================
+# Data files (large, regeneratable)
+# ============================================================
+data/
+*.parquet
+*.xml
+*.tsv
+*.csv
+
+# Don't ignore the small CSVs we WANT to track (benchmark results)
+!benchmark_output/*.csv
+
+# ============================================================
+# FAISS indexes (large, regeneratable)
+# ============================================================
+*.index
+*.faiss
+
+# ============================================================
+# Logs
+# ============================================================
+logs/
+spark-logs/
+fault_tolerance_log.txt
+
+# ============================================================
+# Spark cluster state
+# ============================================================
+.spark_cluster_ports
+spark-warehouse/
+metastore_db/
+derby.log
+
+# ============================================================
+# Python
+# ============================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+build/
+dist/
+*.egg
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Virtual environments
+venv/
+env/
+.venv/
+ENV/
+.env
+
+# ============================================================
+# Jupyter
+# ============================================================
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ============================================================
+# IDE / Editor
+# ============================================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ============================================================
+# Model caches (sentence-transformers downloads ~1.3 GB)
+# ============================================================
+.cache/
+.huggingface/
+huggingface/
+sentence_transformers_cache/
+
+# ============================================================
+# Temporary / scratch
+# ============================================================
+tmp/
+temp/
+scratch/
+*.tmp
+*.bak
+
+# ============================================================
+# Benchmark / output artifacts (keep CSVs and PNGs for report)
+# ============================================================
+# benchmark_output/ is tracked, but exclude any data dumps inside it
+benchmark_output/*.parquet
+benchmark_output/*_full.csv
+
+# Screenshots folder (track if you want, ignore by default)
+# Uncomment next line if your screenshots are huge
+# screenshots/
+
+# ============================================================
+# OS-specific
+# ============================================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ============================================================
+# Submission archives
+# ============================================================
+*.zip
+*.tar.gz
+*.tgz
+submission/

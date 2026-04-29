@@ -1,0 +1,59 @@
+Loading existing AskUbuntu embeddings...
+  AskUbuntu rows: 945111
+  Columns: ['id', 'text', 'embedding']
+  Added source_site='askubuntu.com' to existing data
+
+Loading SuperUser preprocessed data...
+  SuperUser rows: 1245418
+Loading existing AskUbuntu embeddings...
+  AskUbuntu rows: 945111
+  Columns: ['id', 'text', 'embedding']
+  Added source_site='askubuntu.com' to existing data
+
+Loading SuperUser preprocessed data...
+  SuperUser rows: 1245418
+Loading existing AskUbuntu embeddings...
+  AskUbuntu rows: 945111
+  Columns: ['id', 'text', 'embedding']
+  Added source_site='askubuntu.com' to existing data
+
+Loading SuperUser preprocessed data...
+  SuperUser rows: 1245418
+Added source_site='superuser.com' to SuperUser data
+
+Loading e5-large-v2 on GPU...
+
+Embedding 1245418 SuperUser texts (batch_size=4096)...
+
+SuperUser embeddings shape: (1245418, 1024)
+
+Combining datasets...
+  AskUbuntu: 945111 rows
+  SuperUser: 1245418 rows
+  Combined:  2190529 rows
+
+Saving to /data/m25_jahanvi/ML_big/combined_data/data...
+Loading existing AskUbuntu embeddings...
+  AskUbuntu rows: 945111
+  Columns: ['id', 'text', 'embedding']
+  Added source_site='askubuntu.com' to existing data
+
+Loading SuperUser preprocessed data...
+  SuperUser rows: 1245418
+Added source_site='superuser.com' to SuperUser data
+
+Loading e5-large-v2 on GPU...
+
+Embedding 1245418 SuperUser texts (batch_size=8192)...
+
+SuperUser embeddings shape: (1245418, 1024)
+
+Combining datasets...
+  AskUbuntu: 945111 rows
+  SuperUser: 1245418 rows
+  Combined:  2190529 rows
+
+Saving to /data/m25_jahanvi/ML_big/combined_data/data/combined_embeddings.parquet...
+Done.
+
+Next step: rebuild FAISS index from /data/m25_jahanvi/ML_big/combined_data/data/combined_embeddings.parquet

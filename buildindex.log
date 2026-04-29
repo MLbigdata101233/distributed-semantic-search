@@ -1,0 +1,99 @@
+Loading combined embeddings from /data/m25_jahanvi/ML_big/combined_data/data/combined_embeddings_parquet...
+  Total rows: 2190529
+  Columns: ['id', 'text', 'embedding', 'source_site']
+  Source distribution:
+source_site
+superuser.com    1245418
+askubuntu.com     945111
+Name: count, dtype: int64
+
+  Embeddings: (2190529, 1024), dtype=float32
+  Memory: 8.97 GB
+
+Building IVF1024,Flat index (CPU)...
+Training index...
+  Train time: 111.0s
+Adding vectors...
+  Add time: 92.2s
+
+Index stats:
+  Total vectors: 2190529
+  nprobe: 32
+
+Saving index to data/data/faiss_gpu.index...
+Loading combined embeddings from /data/m25_jahanvi/ML_big/combined_data/data/combined_embeddings_parquet...
+  Total rows: 2190529
+  Columns: ['id', 'text', 'embedding', 'source_site']
+  Source distribution:
+source_site
+superuser.com    1245418
+askubuntu.com     945111
+Name: count, dtype: int64
+
+  Embeddings: (2190529, 1024), dtype=float32
+  Memory: 8.97 GB
+
+Building IVF1024,Flat index (CPU)...
+Training index...
+  Train time: 112.4s
+Adding vectors...
+  Add time: 93.5s
+
+Index stats:
+  Total vectors: 2190529
+  nprobe: 32
+
+Saving index to /data/faiss_index_gpu.index...
+Loading combined embeddings from /data/m25_jahanvi/ML_big/combined_data/data/combined_embeddings_parquet...
+  Total rows: 2190529
+  Columns: ['id', 'text', 'embedding', 'source_site']
+  Source distribution:
+source_site
+superuser.com    1245418
+askubuntu.com     945111
+Name: count, dtype: int64
+
+  Embeddings: (2190529, 1024), dtype=float32
+  Memory: 8.97 GB
+
+Building IVF1024,Flat index (CPU)...
+Training index...
+  Train time: 110.7s
+Adding vectors...
+  Add time: 92.0s
+
+Index stats:
+  Total vectors: 2190529
+  nprobe: 32
+
+Saving index to faiss_index_gpu.index...
+Saving metadata with source_site...
+Loading combined embeddings from /data/m25_jahanvi/ML_big/combined_data/data/combined_embeddings_parquet...
+  Total rows: 2190529
+  Columns: ['id', 'text', 'embedding', 'source_site']
+  Source distribution:
+source_site
+superuser.com    1245418
+askubuntu.com     945111
+Name: count, dtype: int64
+
+  Embeddings: (2190529, 1024), dtype=float32
+  Memory: 8.97 GB
+
+Building IVF1024,Flat index (CPU)...
+Training index...
+  Train time: 111.9s
+Adding vectors...
+  Add time: 93.7s
+
+Index stats:
+  Total vectors: 2190529
+  nprobe: 32
+
+Saving index to faiss_index_gpu.index...
+Saving metadata with source_site...
+
+Done.
+  Index size: 8994.1 MB
+  Metadata rows: 2190529
+
